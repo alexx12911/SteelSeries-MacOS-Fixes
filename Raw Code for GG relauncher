@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Define the directory containing the executables
+EXECUTABLE_DIR="/Applications/SteelSeries GG/SteelSeries GG.app/Contents/MacOS"
+
+# Array containing the names of the executables
+EXECUTABLES=("GGTableMigrations" "SteelSeries GG" "SteelSeriesGG" "SteelSeriesGGUpdateService")
+
+# Force quit any SteelSeries processes
+echo "Force quitting all SteelSeries-related processes..."
+pkill -f "SteelSeries"
+
+# Loop through each executable and run it
+for exec_file in "${EXECUTABLES[@]}"; do
+    full_path="$EXECUTABLE_DIR/$exec_file"
+    if [ -x "$full_path" ]; then
+        echo "Running $exec_file..."
+        "$full_path" &
+        sleep 5  # Wait for 3 seconds
+    else
+        echo "Executable $exec_file not found or not executable."
+    fi
+done
+
+echo "All executables launched."
