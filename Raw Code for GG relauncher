@@ -1,4 +1,39 @@
+
+
+
 #!/bin/bash
+
+# =============================================================================
+# SteelSeries GG Relaunch Script for macOS
+# =============================================================================
+#
+# This script force-quits all running SteelSeries-related processes and then
+# relaunches the main executables for the SteelSeries GG application.
+#
+# Features:
+#   - Gracefully kills any running SteelSeries processes using `pkill`.
+#   - Launches all core executables for SteelSeries GG, including:
+#       * GGTableMigrations
+#       * SteelSeries GG
+#       * SteelSeriesGG
+#       * SteelSeriesGGUpdateService
+#   - Waits a few seconds between launching each executable to ensure proper
+#     startup order.
+#
+# Usage:
+#   1. Make sure this script has executable permissions:
+#        chmod +x relaunch_steelseries.sh
+#   2. Run the script:
+#        ./relaunch_steelseries.sh
+#
+# Notes:
+#   - Designed for macOS with SteelSeries GG installed in the default Applications folder.
+#   - Requires Bash shell (default on macOS).
+#   - May need administrative privileges depending on app permissions.
+#
+# Author: Alex
+# GitHub: github.com/alexx12911
+# =============================================================================
 
 # Define the directory containing the executables
 EXECUTABLE_DIR="/Applications/SteelSeries GG/SteelSeries GG.app/Contents/MacOS"
